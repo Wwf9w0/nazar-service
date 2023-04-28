@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.request.UserRegisterRequest;
+import com.nazar.service.model.response.TopNazarsResponse;
 import com.nazar.service.model.service.UserPersistenceService;
-import com.nazar.service.response.TopNazarsResponse;
 
 import lombok.RequiredArgsConstructor;
 

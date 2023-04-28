@@ -21,8 +21,8 @@ import com.nazar.service.model.enums.NazarType;
 import com.nazar.service.model.repository.NazarRepository;
 import com.nazar.service.model.repository.UserNazarRepository;
 import com.nazar.service.model.request.NazarRequest;
-import com.nazar.service.response.AttachNazarResponse;
-import com.nazar.service.response.NazarCountResponse;
+import com.nazar.service.model.response.AttachNazarResponse;
+import com.nazar.service.model.response.NazarCountResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

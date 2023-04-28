@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import com.nazar.service.configuration.ChatGptConfig;
 import com.nazar.service.model.request.BotRequest;
 import com.nazar.service.model.request.ChatGptRequest;
-import com.nazar.service.response.ChatGptResponse;
+import com.nazar.service.model.response.ChatGptResponse;
 @Service
 public class ChatGptService {
 

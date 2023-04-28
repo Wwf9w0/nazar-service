@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nazar.service.response.TarotResponse;
+import com.nazar.service.model.response.TarotResponse;
 import com.nazar.service.service.TarotService;
 
 import io.swagger.annotations.ApiOperation;

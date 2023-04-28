@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.nazar.service.model.enums.NumerologyType;
-import com.nazar.service.response.NumerologyResponse;
+import com.nazar.service.model.response.NumerologyResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

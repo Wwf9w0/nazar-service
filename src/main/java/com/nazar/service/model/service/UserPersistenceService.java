@@ -17,7 +17,7 @@ import com.nazar.service.model.entity.UserNazarEntity;
 import com.nazar.service.model.enums.NazarType;
 import com.nazar.service.model.repository.UserRepository;
 import com.nazar.service.model.request.UserRegisterRequest;
-import com.nazar.service.response.TopNazarsResponse;
+import com.nazar.service.model.response.TopNazarsResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

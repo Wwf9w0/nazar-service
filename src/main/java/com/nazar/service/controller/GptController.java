@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nazar.service.model.request.BotRequest;
-import com.nazar.service.response.ChatGptResponse;
+import com.nazar.service.model.response.ChatGptResponse;
 import com.nazar.service.service.ChatGptService;
 
 import io.swagger.annotations.ApiOperation;

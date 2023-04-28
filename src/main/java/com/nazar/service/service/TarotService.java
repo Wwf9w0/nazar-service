@@ -11,10 +11,10 @@ import com.nazar.service.model.entity.UserTarotEntity;
 import com.nazar.service.model.enums.MajorArcanaTarotType;
 import com.nazar.service.model.enums.MinorArkanaTarotType;
 import com.nazar.service.model.repository.UserTarotRepository;
+import com.nazar.service.model.response.MajorArkanaTypeResponse;
+import com.nazar.service.model.response.MinorArkanaTypeResponse;
+import com.nazar.service.model.response.TarotResponse;
 import com.nazar.service.model.service.UserPersistenceService;
-import com.nazar.service.response.MajorArkanaTypeResponse;
-import com.nazar.service.response.MinorArkanaTypeResponse;
-import com.nazar.service.response.TarotResponse;
 import com.nazar.service.util.RandomUtil;
 
 import lombok.RequiredArgsConstructor;

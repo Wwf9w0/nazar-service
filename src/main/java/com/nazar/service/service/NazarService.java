@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.nazar.service.model.request.NazarRequest;
+import com.nazar.service.model.response.AttachNazarResponse;
+import com.nazar.service.model.response.NazarCountResponse;
 import com.nazar.service.model.service.NazarPersistenceService;
-import com.nazar.service.response.AttachNazarResponse;
-import com.nazar.service.response.NazarCountResponse;
 
 import lombok.RequiredArgsConstructor;
 

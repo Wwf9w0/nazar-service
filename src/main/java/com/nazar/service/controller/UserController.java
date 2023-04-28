@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.request.UserRegisterRequest;
-import com.nazar.service.response.TopNazarsResponse;
+import com.nazar.service.model.response.TopNazarsResponse;
 import com.nazar.service.service.UserService;
 
 import io.swagger.annotations.ApiOperation;

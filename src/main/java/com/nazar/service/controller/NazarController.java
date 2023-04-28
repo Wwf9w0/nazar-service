@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nazar.service.model.request.NazarRequest;
-import com.nazar.service.response.AttachNazarResponse;
-import com.nazar.service.response.NazarCountResponse;
+import com.nazar.service.model.response.AttachNazarResponse;
+import com.nazar.service.model.response.NazarCountResponse;
 import com.nazar.service.service.NazarService;
 
 import io.swagger.annotations.ApiOperation;

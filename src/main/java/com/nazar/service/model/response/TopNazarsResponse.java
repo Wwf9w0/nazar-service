@@ -1,4 +1,4 @@
-package com.nazar.service.response;
+package com.nazar.service.model.response;
 
 import java.util.List;
 

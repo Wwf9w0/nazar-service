@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nazar.service.response.NumerologyResponse;
+import com.nazar.service.model.response.NumerologyResponse;
 import com.nazar.service.service.NumerologyService;
 
 import io.swagger.annotations.ApiOperation;
