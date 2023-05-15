@@ -1,5 +1,7 @@
 package com.nazar.service.model.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -11,6 +13,9 @@ import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import com.nazar.service.model.entity.NazarLevelEntity;
+import com.nazar.service.model.enums.NazarLevel;
+import com.nazar.service.model.repository.NazarLevelRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +40,7 @@ public class NazarPersistenceService {
     private final NazarRepository nazarRepository;
     private final UserNazarRepository userNazarRepository;
     private final UserPersistenceService userPersistenceService;
+    private final NazarLevelRepository nazarLevelRepository;
     private final int TEN = 10;
     private final int ONE = 1;
 
@@ -59,8 +65,10 @@ public class NazarPersistenceService {
                     .lastModifiedDate(new Date())
                     .build();
             nazarUser.setMyNazarCount(Objects.isNull(user.getMyNazarCount()) ? ONE : nazarUser.getMyNazarCount() + ONE);
+            calculateNazarLevel(user);
             userNazarRepository.save(userNazarEntity);
             nazarRepository.save(nazarEntity);
+            userPersistenceService.save(user);
         }
     }
 
@@ -114,6 +122,10 @@ public class NazarPersistenceService {
                 .build();
     }
 
+    public List<NazarLevelEntity> getTopNazarLevel(NazarLevel level){
+        return nazarLevelRepository.findAllByLevelOrderByRank(level);
+    }
+
     public void removeNazarByNazarPoint(Long userId, Long nazarId) {
         UserEntity user = userPersistenceService.getUserByUserId(userId);
         Optional<UserNazarEntity> nazarEntity = userNazarRepository.findById(nazarId);
@@ -155,5 +167,40 @@ public class NazarPersistenceService {
         if (sPoint && Objects.equals(type, NazarType.SOZLU_NAZAR)) {
             throw new RuntimeException("This user is already remove  point!");
         }
+    }
+
+    private void calculateNazarLevel(UserEntity user) {
+        if (user.getNazarsCount() == null) {
+            return;
+        }
+        int count = user.getNazarsCount();
+        if (count > 5) {
+            user.getNazarLevel().setLevel(NazarLevel.BEGINNER);
+        } else if (count > 10) {
+            user.getNazarLevel().setLevel(NazarLevel.LOW_LEVEL);
+        } else if (count > 15) {
+            user.getNazarLevel().setLevel(NazarLevel.INTERMEDIATE);
+        } else {
+            user.getNazarLevel().setLevel(NazarLevel.ADVANCED);
+        }
+        if (Objects.nonNull(user.getNazarLevel().getPercent())) {
+            BigDecimal oldPercent = user.getNazarLevel().getPercent();
+            user.setNazarLevel(createNazarLevelEntity(user.getNazarLevel().getLevel(), oldPercent.add(calculatePercent(count))));
+        }
+        user.setNazarLevel(createNazarLevelEntity(user.getNazarLevel().getLevel(), calculatePercent(count)));
+    }
+
+    private BigDecimal calculatePercent(int count) {
+        BigDecimal result = new BigDecimal(count).divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN);
+        BigDecimal r2 = result.multiply(new BigDecimal(10));
+        return r2;
+    }
+
+
+    private NazarLevelEntity createNazarLevelEntity(NazarLevel level, BigDecimal percent){
+        NazarLevelEntity nazarLevelEntity = new NazarLevelEntity();
+        nazarLevelEntity.setPercent(percent);
+        nazarLevelEntity.setLevel(level);
+        return nazarLevelEntity;
     }
 }

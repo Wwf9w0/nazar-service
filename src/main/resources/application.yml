@@ -4,7 +4,7 @@ spring:
       enabled: true
 
   datasource:
-    url: jdbc:h2:./nazar9
+    url: jdbc:h2:./nazar10
     username: sa
     #generate-unique-name: false
   jpa:
@@ -13,4 +13,4 @@ spring:
       dialect: org.hibernate.dialect.H2Dialect
 
 server:
-  port: 8091
+  port: 8090

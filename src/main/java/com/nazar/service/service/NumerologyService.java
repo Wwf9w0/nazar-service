@@ -30,7 +30,6 @@ public class NumerologyService {
     }
 
     private NumerologyResponse numerologyAnalysis(int value, String name) {
-
         int number = value;
         String numberAsString = Integer.toString(number);
         char firstDigit = numberAsString.charAt(0);

@@ -40,8 +40,8 @@ public class TarotService {
                         majorGameCount = majorGameCount + ONE;
                         minorGameCount = minorGameCount + ONE;
                 }
-                MajorArcanaTarotType majorArcanaTarotType = MajorArcanaTarotType.fromValue(majorGameCount); // KADER_CARKI
-                MinorArkanaTarotType minorArkanaTarotType = MinorArkanaTarotType.fromValue(minorGameCount); // DEGNEK_DORTLUSU
+                MajorArcanaTarotType majorArcanaTarotType = MajorArcanaTarotType.fromValue(majorGameCount); 
+                MinorArkanaTarotType minorArkanaTarotType = MinorArkanaTarotType.fromValue(minorGameCount); 
 
                 MajorArkanaTypeResponse majorArkanaTypeResponse = MajorArkanaTypeResponse.builder()
                                 .type(majorArcanaTarotType)
