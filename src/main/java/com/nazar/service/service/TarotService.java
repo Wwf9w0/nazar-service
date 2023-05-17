@@ -29,8 +29,7 @@ public class TarotService {
         private final UserPersistenceService userPersistenceService;
         private final Integer ONE = 1;
 
-        public TarotResponse gameTarot(int number) {
-                Long userId = 1L;
+        public TarotResponse gameTarot(int number, Long userId) {
                 int tarotCount = RandomUtil.randomInt(number);
                 int majorGameCount = isGameMajorArkana(tarotCount);
                 int minorGameCount = isGameMinorArkana(tarotCount);

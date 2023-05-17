@@ -21,7 +21,8 @@ public class TarotController {
 
     @PostMapping
     @ApiOperation("Random tarot game")
-    public ResponseEntity<TarotResponse> gameTarot(@RequestParam("number") int number) {
-        return ResponseEntity.ok(tarotService.gameTarot(number));
+    public ResponseEntity<TarotResponse> gameTarot(@RequestParam("number") int number,
+                                                   @RequestParam("userId") Long userId) {
+        return ResponseEntity.ok(tarotService.gameTarot(number, userId));
     }
 }
