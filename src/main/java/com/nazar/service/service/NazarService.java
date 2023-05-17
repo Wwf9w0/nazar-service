@@ -25,13 +25,11 @@ public class NazarService {
         return nazarPersistenceService.getNazarsOfUser(userId);
     }
 
-    // Bana nazar atan userlar
-    public AttachNazarResponse getNazarUsersForUser(Long userId) {
+    public AttachNazarResponse getNazarSentToMe(Long userId) {
         return nazarPersistenceService.getNazarUsersForUser(userId);
     }
 
-    // Benim nazar attıklarım
-    public AttachNazarResponse myNazars(Long userId) {
+    public AttachNazarResponse mySentNazar(Long userId) {
         return nazarPersistenceService.getNazarUser(userId);
     }
 

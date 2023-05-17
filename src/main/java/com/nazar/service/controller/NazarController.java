@@ -41,21 +41,21 @@ public class NazarController {
     }
 
     @GetMapping("/my/{userId}")
-    @ApiOperation("bana nazar atanlar")
+    @ApiOperation("throw nazar at me")
     public ResponseEntity<AttachNazarResponse> getNazarUsersForUser(@PathVariable Long userId) {
-        return ResponseEntity.ok(nazarService.getNazarUsersForUser(userId));
+        return ResponseEntity.ok(nazarService.getNazarSentToMe(userId));
     }
 
     @GetMapping("/user/{userId}")
-    @ApiOperation("Benim nazar attıklarım")
+    @ApiOperation("throw nazar")
     public ResponseEntity<AttachNazarResponse> myNazars(@PathVariable Long userId) {
-        return ResponseEntity.ok(nazarService.myNazars(userId));
+        return ResponseEntity.ok(nazarService.mySentNazar(userId));
     }
 
     @PostMapping("/delete")
     @ApiOperation("Delete nazar by nazar point")
     public ResponseEntity<HttpStatus> removeNazarByNazarPoint(@RequestParam("userId") Long userId,
-            @RequestParam("nazarId") Long nazarId) {
+                                                              @RequestParam("nazarId") Long nazarId) {
         nazarService.removeNazarByNazarPoint(userId, nazarId);
         return ResponseEntity.ok(HttpStatus.OK);
     }

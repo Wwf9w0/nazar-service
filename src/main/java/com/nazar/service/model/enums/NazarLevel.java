@@ -7,10 +7,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum NazarLevel {
 
-    BEGINNER(0),
-    LOW_LEVEL(1),
-    INTERMEDIATE(2),
-    ADVANCED(3);
+    BEGINNER(0, "Başlangıç Seviye Nazar"),
+    LOW_LEVEL(1, "Düşük Seviye Nazar"),
+    INTERMEDIATE(2, "Orta Seviye Nazar"),
+    ADVANCED(3, "İleri Seviye Nazar");
 
     private final int value;
+    private final String name;
 }
