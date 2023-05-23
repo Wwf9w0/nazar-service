@@ -25,8 +25,7 @@ public class NumerologyService {
             letterValueSum += letterValue;
         }
         int finalValue = letterValueSum;
-        NumerologyResponse response = numerologyAnalysis(finalValue, name);
-        return response;
+        return numerologyAnalysis(finalValue, name);
     }
 
     private NumerologyResponse numerologyAnalysis(int value, String name) {

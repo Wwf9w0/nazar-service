@@ -1,36 +1,26 @@
 package com.nazar.service.model.service;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
-import com.nazar.service.model.entity.NazarLevelEntity;
-import com.nazar.service.model.enums.NazarLevel;
-import com.nazar.service.model.repository.NazarLevelRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.nazar.service.model.entity.NazarEntity;
+import com.nazar.service.model.entity.NazarLevelEntity;
 import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.entity.UserNazarEntity;
+import com.nazar.service.model.enums.NazarLevel;
 import com.nazar.service.model.enums.NazarType;
+import com.nazar.service.model.repository.NazarLevelRepository;
 import com.nazar.service.model.repository.NazarRepository;
 import com.nazar.service.model.repository.UserNazarRepository;
 import com.nazar.service.model.request.NazarRequest;
 import com.nazar.service.model.response.AttachNazarResponse;
 import com.nazar.service.model.response.NazarCountResponse;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -192,8 +182,7 @@ public class NazarPersistenceService {
 
     private BigDecimal calculatePercent(int count) {
         BigDecimal result = new BigDecimal(count).divide(new BigDecimal(100), 2, RoundingMode.HALF_DOWN);
-        BigDecimal r2 = result.multiply(new BigDecimal(10));
-        return r2;
+        return result.multiply(new BigDecimal(10));
     }
 
 

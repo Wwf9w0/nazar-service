@@ -1,11 +1,5 @@
 package com.nazar.service.service;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
-import org.springframework.stereotype.Service;
-
 import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.entity.UserTarotEntity;
 import com.nazar.service.model.enums.MajorArcanaTarotType;
@@ -16,9 +10,11 @@ import com.nazar.service.model.response.MinorArkanaTypeResponse;
 import com.nazar.service.model.response.TarotResponse;
 import com.nazar.service.model.service.UserPersistenceService;
 import com.nazar.service.util.RandomUtil;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service

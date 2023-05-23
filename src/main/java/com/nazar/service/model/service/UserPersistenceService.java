@@ -1,26 +1,20 @@
 package com.nazar.service.model.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-
 import com.google.common.base.Objects;
 import com.nazar.service.model.entity.UserEntity;
-import com.nazar.service.model.entity.UserNazarEntity;
 import com.nazar.service.model.enums.NazarType;
 import com.nazar.service.model.repository.UserRepository;
 import com.nazar.service.model.request.UserRegisterRequest;
 import com.nazar.service.model.response.TopNazarsResponse;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -40,7 +34,7 @@ public class UserPersistenceService {
                 .userName(registerRequest.getUserName())
                 .build();
         UserEntity save = userRepository.save(userEntity);
-        log.info("saved user : {}", save.toString());
+        log.info("saved user : {}", save);
     }
 
     public List<UserEntity> getAllUsers() {
