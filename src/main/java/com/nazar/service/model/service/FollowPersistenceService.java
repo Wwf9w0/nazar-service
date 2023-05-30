@@ -35,6 +35,7 @@ public class FollowPersistenceService {
                 .build();
         updateFollowingCount(user);
         updateFollowerCount(followingUser);
+        log.info("Following user success userId : {}, followingUser:{}", user.getId(), followingUser);
         followingRepository.save(followingEntity);
     }
 
@@ -102,5 +103,4 @@ public class FollowPersistenceService {
     private UserEntity getProfile(Long userId) {
         return userPersistenceService.getUserByUserId(userId);
     }
-
 }

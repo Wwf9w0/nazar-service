@@ -70,5 +70,8 @@ public class UserEntity {
 
     @Column
     private Integer followerCount;
-    
+
+    @Column
+    private Boolean isSuperUser = false;
+
 }
