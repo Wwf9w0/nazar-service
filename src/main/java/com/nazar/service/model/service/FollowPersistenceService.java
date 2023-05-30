@@ -23,7 +23,7 @@ public class FollowPersistenceService {
     private final FollowingRepository followingRepository;
     private final FollowerRepository followerRepository;
     private final UserPersistenceService userPersistenceService;
-    private static int ONE = 1;
+    private static final int ONE = 1;
 
     public void followingUser(FollowingUserRequest request) {
         UserEntity user = userPersistenceService.getUserByUserId(request.getUserId());

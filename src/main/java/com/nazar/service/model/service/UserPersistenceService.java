@@ -56,13 +56,11 @@ public class UserPersistenceService {
     public List<TopNazarsResponse> getNazarsOfUsersGozluType() {
         List<UserEntity> users = getTopNazarForUser(NazarType.GOZLU_NAZAR);
         List<UserEntity> userList = new ArrayList<>();
-        users.forEach(u -> {
-            u.getMyNazars().forEach(n -> {
-                if (Objects.equal(n.getType(), NazarType.GOZLU_NAZAR)) {
-                    userList.add(u);
-                }
-            });
-        });
+        users.forEach(u -> u.getMyNazars().forEach(n -> {
+            if (Objects.equal(n.getType(), NazarType.GOZLU_NAZAR)) {
+                userList.add(u);
+            }
+        }));
         return userList
                 .stream()
                 .distinct()

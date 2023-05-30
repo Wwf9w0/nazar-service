@@ -55,6 +55,10 @@ public class UserEntity {
     @JsonManagedReference
     private List<FollowerEntity> follower;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<PostEntity> post;
+
     @OneToOne
     @JsonManagedReference
     private NazarLevelEntity nazarLevel;

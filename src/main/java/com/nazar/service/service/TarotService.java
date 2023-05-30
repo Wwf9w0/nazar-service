@@ -88,10 +88,8 @@ public class TarotService {
 
         private int isGameMinorArkana(int number) {
                 int minorSize = MinorArkanaTarotType.values().length;
-                int diff = 0;
-
                 if (minorSize < number) {
-                        return diff = number - minorSize;
+                        return number - minorSize;
                 }
                 return number;
         }

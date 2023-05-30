@@ -29,8 +29,7 @@ public class NumerologyService {
     }
 
     private NumerologyResponse numerologyAnalysis(int value, String name) {
-        int number = value;
-        String numberAsString = Integer.toString(number);
+        String numberAsString = Integer.toString(value);
         char firstDigit = numberAsString.charAt(0);
         char secondDigit = numberAsString.charAt(1);
         int digit1 = Character.getNumericValue(firstDigit);

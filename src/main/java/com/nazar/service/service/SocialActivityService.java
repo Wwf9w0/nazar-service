@@ -5,7 +5,6 @@ import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.entity.UserNazarEntity;
 import com.nazar.service.model.request.SocialActivityRequest;
 import com.nazar.service.model.response.SocialActivityResponse;
-import com.nazar.service.model.service.UserPersistenceService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -58,11 +57,10 @@ public class SocialActivityService {
     }
 
     public List<UserEntity> getSuperUsers() {
-        List<UserEntity> userEntities = userService.getAllUsers()
+        return userService.getAllUsers()
                 .stream()
                 .filter(user -> Objects.equals(user.getIsSuperUser(), Boolean.TRUE))
                 .collect(Collectors.toList());
-        return userEntities;
     }
 
     public boolean isSeeActivity(Long userId, Long otherUserId) {
@@ -76,9 +74,6 @@ public class SocialActivityService {
         boolean containsFollower = user.getFollower()
                 .stream()
                 .anyMatch(u -> Objects.equals(u.getFollowerUserId(), otherUser.getId()));
-        if (containsFollower && containsFollowing) {
-            return true;
-        }
-        return false;
+        return containsFollower && containsFollowing;
     }
 }
