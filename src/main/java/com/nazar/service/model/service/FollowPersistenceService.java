@@ -6,11 +6,14 @@ import com.nazar.service.model.entity.UserEntity;
 import com.nazar.service.model.repository.FollowerRepository;
 import com.nazar.service.model.repository.FollowingRepository;
 import com.nazar.service.model.request.FollowingUserRequest;
+import com.nazar.service.model.response.FollowResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -60,6 +63,44 @@ public class FollowPersistenceService {
         long count = user.getFollower().size();
         int lastCount = Math.toIntExact(count + ONE);
         user.setFollowerCount(lastCount);
+    }
+
+    public FollowResponse getFollowingUsers(Long userId) {
+
+        UserEntity user = userPersistenceService.getUserByUserId(userId);
+
+        List<String> following = user.getFollowing()
+                .stream()
+                .map(FollowingEntity::getFollowingUserId)
+                .map(this::getProfile)
+                .map(UserEntity::getUserName)
+                .collect(Collectors.toList());
+
+
+        return FollowResponse
+                .builder()
+                .userNameList(following)
+                .build();
+    }
+
+    public FollowResponse getFollowerUsers(Long userId) {
+        UserEntity user = userPersistenceService.getUserByUserId(userId);
+
+        List<String> follower = user.getFollower()
+                .stream()
+                .map(FollowerEntity::getFollowerUserId)
+                .map(this::getProfile)
+                .map(UserEntity::getUserName)
+                .collect(Collectors.toList());
+
+        return FollowResponse
+                .builder()
+                .userNameList(follower)
+                .build();
+    }
+
+    private UserEntity getProfile(Long userId) {
+        return userPersistenceService.getUserByUserId(userId);
     }
 
 }
