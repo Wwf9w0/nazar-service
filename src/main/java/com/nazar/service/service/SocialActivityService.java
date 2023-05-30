@@ -22,7 +22,6 @@ public class SocialActivityService {
     private final UserService userService;
 
     public SocialActivityResponse getActivityForUser(SocialActivityRequest request) {
-        //TODO  need to baktığı fallar ve countları
         UserEntity user = userService.getUserById(request.getUserId());
         List<NazarEntity> nazarEntities = user.getNazars();
         List<UserNazarEntity> userNazarEntities = user.getMyNazars();
