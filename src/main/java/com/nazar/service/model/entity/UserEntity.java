@@ -47,6 +47,14 @@ public class UserEntity {
     @JsonManagedReference
     private List<UserTarotEntity> userTarots;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<FollowingEntity> following;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<FollowerEntity> follower;
+
     @OneToOne
     @JsonManagedReference
     private NazarLevelEntity nazarLevel;
@@ -56,5 +64,11 @@ public class UserEntity {
 
     @Column
     private Integer nazarsCount;
+
+    @Column
+    private Integer followingCount;
+
+    @Column
+    private Integer followerCount;
     
 }
