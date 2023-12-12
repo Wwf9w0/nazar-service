@@ -60,7 +60,7 @@ public class TarotService {
                                 .majorArcanaTarotType(majorArkanaTypeResponse)
                                 .minorArkanaTarotType(minorArkanaTypeResponse)
                                 .build();
-        }
+        }q
 
         private boolean hasAlreadyTarot(UserEntity user, int majorGameCount, int minorGameCount) {
                 if (Objects.nonNull(user.getUserTarots())) {

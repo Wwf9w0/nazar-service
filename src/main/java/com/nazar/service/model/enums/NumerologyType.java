@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum NumerologyType {
 
+    ZERO(0, "zero"),
     ONE(1, "Liderlik, bağımsızlık, yaratıcılık"),
     TWO(2, "İkili ilişkiler, işbirliği, uyum"),
     THREE(3, "İfade, yaratıcılık, sosyallik"),

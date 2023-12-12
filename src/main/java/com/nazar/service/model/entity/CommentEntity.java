@@ -25,9 +25,6 @@ public class CommentEntity {
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonBackReference
-    private PostEntity post;
 
     @CreatedDate
     private Date createdDate;

@@ -32,14 +32,17 @@ public class NumerologyService {
         String numberAsString = Integer.toString(value);
         char firstDigit = numberAsString.charAt(0);
         char secondDigit = numberAsString.charAt(1);
+        char thirdDigit = numberAsString.charAt(2);
         int digit1 = Character.getNumericValue(firstDigit);
         int digit2 = Character.getNumericValue(secondDigit);
+        int digit3 = Character.getNumericValue(thirdDigit);
 
         NumerologyType firsNumerologyType = NumerologyType.fromValue(digit1);
         NumerologyType secondNumerologyType = NumerologyType.fromValue(digit2);
+        NumerologyType thirdNumerologyType = NumerologyType.fromValue(digit3);
         return NumerologyResponse.builder()
                 .name(name)
-                .numerology(firsNumerologyType.getDescription() + "," + secondNumerologyType.getDescription())
+                .numerology(firsNumerologyType.getDescription() + "," + secondNumerologyType.getDescription() + " ," + thirdNumerologyType.getDescription())
                 .build();
     }
 
